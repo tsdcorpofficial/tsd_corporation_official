@@ -1,0 +1,31 @@
+.contact-list{
+    text-align: center;
+    display: flex;
+    flex-direction: row;
+    margin: 2em;
+    align-items: center;
+    justify-content: center;
+}
+
+.contact-list > .contact-item > a {
+    display: flex;
+    flex-direction: row;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin: 5em;
+}
+
+.contact-item > a > img {
+    width: 40px;
+    margin:auto auto
+}
+
+.contact-item > a > p {
+    margin: 0.5em 0.5em;
+}
+
+.contact-item > a {
+    text-decoration: none;
+    color: white;
+}
