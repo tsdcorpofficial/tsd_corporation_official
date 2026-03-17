@@ -30,3 +30,14 @@
     margin-right: 10px;
 }
 
+.menu-files-pos-version {
+    text-align: center;
+    margin: 1em;
+}
+
+.menu-files-pos-version > .btn-files-pos-version {
+    background: linear-gradient(180deg, rgba(255, 255, 255,0.5) 50%, rgba(255, 255, 255,0.2) 100%);   
+    color: white;
+    border-radius: 25px;
+    padding: 5px;
+}
