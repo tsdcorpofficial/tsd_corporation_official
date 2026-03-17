@@ -52,7 +52,12 @@
       <section>
         <h1>Выберите тип системы</h1>
         <h2>Перед тем как скачать систему, вам необходимо подключится к нашему магазину <a href="https://t.me/+PTabffa0At4yNTJi">TSD Store</a> в ТГ.</h2>
-        <div class="files-list">
+        <div class="menu-files-pos-version">
+          <h2>Группировка версий (от верха до низа)</h2>   
+          <button class="btn-files-pos-version" id="new_to_old" onclick="NEW_TO_OLD()" >От новых до старых</button>
+             <button class="btn-files-pos-version" id="old_to_new" onclick="OLD_TO_NEW()" >От старых до новых</button>
+        </div>
+        <div class="files-list" id="files-list">
                 <div class="files-item"><a href="https://t.me/c/3771689083/14"><img src="source/files/SmartfordOS logo.png" alt=""><p>SmartfordOS 2</p></a></div>
                 <div class="files-item"><a href="https://t.me/c/3771689083/13"><img src="source/files/SmartfordOS logo.png" alt=""><p>SmartfordOS 1</p></a></div>
                 <div class="files-item"><a href=""><img src="source/files/SmartfordOS logo.png" alt=""><p>SmartfordOS beta 1</p></a></div>
@@ -81,5 +86,13 @@
       </footer>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
-</body>
+    <script>
+      function NEW_TO_OLD() {
+        document.getElementById("files-list").style.flexDirection = "column";
+      };
+      function OLD_TO_NEW() {
+        document.getElementById("files-list").style.flexDirection = "column-reverse"
+      };
+    </script>
+  </body>
 </html>
