@@ -150,10 +150,14 @@ footer {
 
 @media (max-width:756px) {
     footer {
-        top: 900px;
+        top: 1250px;
     }
     .footer-text > p {
       font-size: 11px;  
+    }
+    .down-body {
+        height: 1400px;
+        margin-bottom: 10px;
     }
 }
 
