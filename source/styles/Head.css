@@ -1,21 +1,19 @@
 /*Основное*/
 
 html body {
-    background: linear-gradient(180deg, #0b0e23 100%, #111a61 100%);
+    background: linear-gradient(to right, #2901b9 ,#0113b9 , #0123b9 ,#0132b9);
     color: white;
     font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
-.down-body {
-    background: linear-gradient(180deg, rgba(255, 255, 255,0.2) 100%, rgba(255, 255, 255,0.2) 100%);
+header , section , footer {
+    background: linear-gradient(180deg, rgba(255, 255, 255,0.2) 100%, rgba(104, 104, 104, 0.2) 100%);
     margin: 1em;
-    border-radius: 10px;
+    border-radius: 60px;
     padding: 1em;
-}
-
-.down-body {
-    height: 1010px;
-    margin-bottom: 10px;
+    border-style: solid;
+    border-width: 0.1em;
+    border-color: rgba(161, 161, 161, 0.671);
 }
 
 #span {
@@ -32,6 +30,7 @@ p {
     color: linear-gradient(180deg, rgba(255, 255, 255,0.2) 100%, rgba(255, 255, 255,0.2) 100%);
     
 }
+
 
 /*Навигационная панель*/
 
@@ -86,6 +85,10 @@ p {
  .carousel-preview {
     width: 60%;
     margin: auto auto;
+    border-radius: 1em; 
+    border-style:solid; 
+    border-width:0.1em; 
+    border-color: rgba(161, 161, 161, 0.671);
 }
 
 /*Анимация телефона*/
@@ -129,10 +132,7 @@ p {
 /*Футер*/
 
 footer {
-    position: absolute;
-    top: 950px;
-    right: 0px;
-    left: 0px;
+    margin-top: 2em;
 }
     
 
@@ -149,15 +149,15 @@ footer {
 }
 
 @media (max-width:756px) {
-    footer {
-        top: 1250px;
-    }
     .footer-text > p {
       font-size: 11px;  
     }
-    .down-body {
-        height: 1400px;
-        margin-bottom: 10px;
-    }
 }
 
+/*Эффекты при нажатии контекстного меню на некоторые элементы*/
+
+.contact-item-link.contextmenu, .footer-text-item.contextmenu {
+    padding: 0.5em;
+    background: linear-gradient(180deg, rgba(255, 255, 255,0.4) 50%, rgba(255, 255, 255,0.16) 100%);
+    border-radius: 60px;
+}
