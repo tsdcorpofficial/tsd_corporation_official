@@ -45,5 +45,8 @@ const Data_product = [
           {name:"TRcode fullpack", download_link:"https://t.me/c/3771689083/16"}, 
         {name:"TRcode v1", download_link:"https://t.me/c/3771689083/16"}, 
     ], logo:"source/files/TSD Corporation logo.png"},
+    {id:7, name:"TRASM", version:[
+      {name:"TRASM beta", download_link:"https://t.me/c/3771689083/17"},  
+  ], logo:"source/files/TSD Corporation logo.png"},
 
 ]
