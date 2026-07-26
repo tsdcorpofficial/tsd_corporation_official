@@ -19,4 +19,16 @@ footer_text.forEach(element => {
         element.classList.remove("contextmunu")
     })
 })
+window.addEventListener("load", function () {
+ window.copy_button = document.getElementById("copy-button")
+ copy_button.addEventListener("click", () => {
+    navigator.clipboard.writeText(document.getElementById("my-code").innerText)
+    copy_button.innerHTML = `Код скопирован!`
+})
+})
+
+
+
+
+
 
