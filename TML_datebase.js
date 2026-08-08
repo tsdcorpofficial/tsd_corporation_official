@@ -81,3 +81,24 @@ const Data_product = [
   },
 
 ]
+
+window.addEventListener('load', () => {
+  setTimeout(() =>{
+   document.getElementById("navbarTogglerDemo03").innerHTML += `
+   <ul class="navbar-nav me-auto mb-2 mb-lg-0" id="nav-bar_list">
+                <li class="nav-item" id="navbar-new-news-item">
+                  <a class="nav-link" aria-current="page" href="#" id="navbar-new-news-link">Срочные новости!!</a>
+                </li>
+              </ul>`
+   const navbar_new_news_item = document.getElementById("navbar-new-news-item")
+   navbar_new_news_item.style.display = "none"
+   navbar_new_news_item.style.display = "list-item"
+   document.getElementById("navbar-new-news-link").href = `News.html?id=${Data_news.length}`
+   document.getElementById("navbar-new-news-link").innerHTML = `Последние новости! ${Data_news[Data_news.length - 1].Headers} <img style="width:1em" src="source/files/TSD Corporation logo.png"></img>`
+  },2500)
+})
+
+const form_item = `<form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск"/>
+                <button class="btn btn-outline-success" type="submit">Искать</button>
+              </form>`
