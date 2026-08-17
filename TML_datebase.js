@@ -27,6 +27,17 @@ const Data_news = [
     image: "source/images/TOS News Preview 3.png",
     data: "26.07.2026"
   },
+  {
+    id: 4,
+    Headers: "Новый редактор кода от TSD уже в разработке!",
+    text: `<p>Наша корпорация TSD Corporation уже ведёт разработку нового редактора кода. Новый редактор кода будет обладать такими  функциями как: написание кода и его редактирование, запуск кода и его сохранение.</p>
+    <p>Новая информация будет появляться по ходу разработки<p/>
+    <p><div class="ref-item"><img src="source/files/TSD Corporation logo.png" class="ref-resource-image"></img><h6 class="ref-resource-name">TML Official</h6><a class="ref-link" target="_blank" href="https://t.me/TSD_TML_OFFICIAL">Присоединиться</a></div></p>
+    <p><div class="code-item" id="HTML-code"><div class="head-code-item"><h5 class="code-name">Код новости</h5></div><code id="my-code"><p>Наша корпорация TSD Corporation уже ведёт разработку нового редактора кода. Новый редактор кода будет обладать такими  функциями как: написание кода и его редактирование, запуск кода и его сохранение.</p>
+    <p>Новая информация будет появляться по ходу разработки<p/></code><div class="foot-code-item"><button id="copy-button" class="code-copy-button">Скопировать код новости</button></div></div></p>`,
+    image: "source/images/TOS News Preview 1.png",
+    data: "17.08.2026"
+  },
 ]
 
 const Data_product = [
@@ -79,7 +90,11 @@ const Data_product = [
       { name: "TRASM beta", download_link: "https://t.me/c/3771689083/17" },
     ], logo: "source/files/TSD Corporation logo.png"
   },
-
+  {
+    id: 8, name: "TriadeStudioCode", version: [
+      { name: "TSCode beta (В разработке)", download_link: "#" },
+    ], logo: "source/files/TSD Corporation logo.png"
+  }
 ]
 
 window.addEventListener('load', () => {
