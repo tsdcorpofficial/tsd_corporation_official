@@ -1,3 +1,4 @@
+// Базы данных новостей и продуктов
 const Data_news = [
   {
     id: 1,
@@ -26,17 +27,6 @@ const Data_news = [
         <p>И эмодзи конечно<span class="emoji-item"><img src="source/files/TSD Corporation logo.png" class="emoji-img"></img></span></p>`,
     image: "source/images/TOS News Preview 3.png",
     data: "26.07.2026"
-  },
-  {
-    id: 4,
-    Headers: "Новый редактор кода от TSD уже в разработке!",
-    text: `<p>Наша корпорация TSD Corporation уже ведёт разработку нового редактора кода. Новый редактор кода будет обладать такими  функциями как: написание кода и его редактирование, запуск кода и его сохранение.</p>
-    <p>Новая информация будет появляться по ходу разработки<p/>
-    <p><div class="ref-item"><img src="source/files/TSD Corporation logo.png" class="ref-resource-image"></img><h6 class="ref-resource-name">TML Official</h6><a class="ref-link" target="_blank" href="https://t.me/TSD_TML_OFFICIAL">Присоединиться</a></div></p>
-    <p><div class="code-item" id="HTML-code"><div class="head-code-item"><h5 class="code-name">Код новости</h5></div><code id="my-code"><p>Наша корпорация TSD Corporation уже ведёт разработку нового редактора кода. Новый редактор кода будет обладать такими  функциями как: написание кода и его редактирование, запуск кода и его сохранение.</p>
-    <p>Новая информация будет появляться по ходу разработки<p/></code><div class="foot-code-item"><button id="copy-button" class="code-copy-button">Скопировать код новости</button></div></div></p>`,
-    image: "source/images/TOS News Preview 1.png",
-    data: "17.08.2026"
   },
 ]
 
@@ -90,11 +80,7 @@ const Data_product = [
       { name: "TRASM beta", download_link: "https://t.me/c/3771689083/17" },
     ], logo: "source/files/TSD Corporation logo.png"
   },
-  {
-    id: 8, name: "TriadeStudioCode", version: [
-      { name: "TSCode beta (В разработке)", download_link: "#" },
-    ], logo: "source/files/TSD Corporation logo.png"
-  }
+
 ]
 
 window.addEventListener('load', () => {
@@ -109,7 +95,7 @@ window.addEventListener('load', () => {
    navbar_new_news_item.style.display = "none"
    navbar_new_news_item.style.display = "list-item"
    document.getElementById("navbar-new-news-link").href = `News.html?id=${Data_news.length}`
-   document.getElementById("navbar-new-news-link").innerHTML = `Последние новости! ${Data_news[Data_news.length - 1].Headers} <img style="width:1em" src="source/files/TSD Corporation logo.png"></img>`
+   document.getElementById("navbar-new-news-link").innerHTML = `Последние новости! <img style="width:1em" src="source/files/TSD Corporation logo.png"></img>`
   },2500)
 })
 
@@ -117,3 +103,39 @@ const form_item = `<form class="d-flex" role="search">
                 <input class="form-control me-2" type="search" placeholder="Поиск" aria-label="Поиск"/>
                 <button class="btn btn-outline-success" type="submit">Искать</button>
               </form>`
+
+//Функции для работы цветовых тем сайта
+
+const ThemeList = ['light','dark']
+
+const SetTheme = (theme) => {
+ document.documentElement.setAttribute('data-theme',theme)
+ localStorage.setItem("theme",theme)
+}
+
+
+const ThemeToggle = () => {
+ const currentTheme = document.documentElement.getAttribute("data-theme")
+ const newTheme = currentTheme === "dark"? "light" : "dark"
+ SetTheme(newTheme)
+ console.log("New theme>>",newTheme)
+}              
+
+const InitTheme = () => {
+  const currentTheme = localStorage.getItem("theme")
+  if(currentTheme) {
+    document.documentElement.setAttribute("data-theme", currentTheme)
+  }
+  else {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    SetTheme(prefersDark === true ? "dark" : "light")
+  }
+}
+
+document.addEventListener('DOMContentLoaded', InitTheme)
+window.addEventListener("load", () => {
+  document.getElementById("navbarTogglerDemo03").innerHTML += `
+  <button id="ThemeToggleButton" onClick="ThemeToggle()">Поменять тему</button>`
+  console.log(localStorage.getItem("theme") + " " + window.matchMedia('(prefers-color-scheme: dark)').matches)
+})
+
