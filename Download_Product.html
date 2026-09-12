@@ -48,7 +48,7 @@
         </nav>
       </header>
       <section>
-        <h1>Выберите тип продукта</h1>
+        <h1>Выберите тип системы</h1>
           <h2>Перед тем как скачать систему, вам необходимо подключится к нашему магазину <a href="https://t.me/+PTabffa0At4yNTJi">TSD Store</a> в ТГ.</h2>
           <div class="menu-files-pos-version">
             <h2>Группировка версий (от верха до низа)</h2>   
@@ -92,18 +92,7 @@
       const id = Number(search.get("id"));
       const product = Data_product[id-1]
       window.addEventListener("load", function() {
-        if (product.name === "TriadeStudioCode") {
-          version_array = product.version;
-        version_array.forEach(file => {
-            files_list.innerHTML += `
-            <div class="files-item">
-              <a href="${file.download_link}">
-                <img src="${product.logo}" alt="">
-                <p>${file.name}</p>
-              </a>
-            </div>`})
-        }
-         else {version_array = product.version;
+        const version_array = product.version;
         version_array.forEach(file => {
             files_list.innerHTML += `
             <div class="files-item">
@@ -112,7 +101,7 @@
                 <p>${file.name}</p>
               </a>
             </div>`
-        });}
+        });
     })
     </script>
     <script src="click-element-effect.js"></script>

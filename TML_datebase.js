@@ -118,6 +118,7 @@ const ThemeToggle = () => {
  const currentTheme = document.documentElement.getAttribute("data-theme")
  const newTheme = currentTheme === "dark"? "light" : "dark"
  SetTheme(newTheme)
+ document.getElementById('ThemeToggleButton').innerHTML = `Поменять тему на ${newTheme === 'dark' ? '☀️' : '🌙'}`
  console.log("New theme>>",newTheme)
 }              
 
@@ -134,8 +135,13 @@ const InitTheme = () => {
 
 document.addEventListener('DOMContentLoaded', InitTheme)
 window.addEventListener("load", () => {
-  document.getElementById("navbarTogglerDemo03").innerHTML += `
-  <button id="ThemeToggleButton" onClick="ThemeToggle()">Поменять тему</button>`
+  document.getElementById("navbarTogglerDemo03").innerHTML += document.documentElement.getAttribute("data-theme") === "dark" ? `
+  <ul class="navbar-nav" id="nav-bar_list">
+  <button id="ThemeToggleButton" onClick="ThemeToggle()">Поменять тему на ☀️</button>
+  </ul>` : `
+  <ul class="navbar-nav" id="nav-bar_list">
+  <button id="ThemeToggleButton" onClick="ThemeToggle()">Поменять тему на 🌙</button>
+  </ul>` 
   console.log(localStorage.getItem("theme") + " " + window.matchMedia('(prefers-color-scheme: dark)').matches)
 })
 

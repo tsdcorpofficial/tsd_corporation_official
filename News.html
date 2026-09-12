@@ -58,6 +58,11 @@
             <div class="news-section" id="news-section">
                 
             </div>
+            <div id="modal" class="modal-window">
+            <h3>Название изображения</h3>
+            <span class="close" id="close">&times;</span>
+            <img class="modal-content" id="modalImg">
+            </div>
         </section>
         <footer>
             <div class="container-fluid">
@@ -88,17 +93,91 @@
        window.addEventListener("load", function () {
         const id = Number(id_str); 
         const news = Data_news[id-1]; 
-        news_section.innerHTML = `
+        console.log(localStorage.getItem('news-mode'))
+        if (localStorage.getItem('news-mode') === "default-mode" || null || undefined) { 
+            news_section.innerHTML = `
          <div class="fluid-container">
                     <div class="row">
-                        <div class="col-lg-12 col-md-12"><div class="headers" ><h2 id="headers">${news.Headers}</h2></div></div>
+                        <div class="col-lg-4 col-md-4"></div>
+                        <div class="col-lg-4 col-md-4"><button id="news-mode-toggle">Перейти в режим приложения (для удобного чтения новости)</button></div>
+                        <div class="col-lg-4 col-md-4"></div>
+                        <div class="col-lg-12 col-md-12"><div class="headers" ><h2 id="headers">${news.Headers}</h2></div></div> 
                         <div class="col-lg-10 col-md-10"><div class="news-preview"><img src="${news.image}" alt="" id="news-preview"></div></div>
                         <div class="col-lg-2 col-md-12"><div class="data"><p id="data">${news.data}</p></div></div>
                         <div class="col-lg-6 col-md-12"><div class="text-news"><p id="text-news">${news.text}</p></div></div>
                     </div>
                 </div>
          `
-       })
+        localStorage.setItem('news-mode',"default-mode")}
+         else {
+          news_section.innerHTML = ` 
+           <div class="fluid-container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4"></div>
+                        <div class="col-lg-4 col-md-4"><button id="news-mode-toggle">Перейти в обычный режим</button></div>
+                        <div class="col-lg-4 col-md-4"></div>
+                        <div class="col-lg-12 col-md-12"><div class="headers app-mod" ><h2 id="headers">${news.Headers}</h2></div></div>
+                        <div class="col-lg-10 col-md-10"><div class="news-preview app-mod"><img src="${news.image}" alt="" id="news-preview-app-mod"></div></div>
+                        <div class="col-lg-2 col-md-12"><div class="data app-mod"><p id="data">${news.data}</p></div></div>
+                        <div class="col-lg-6 col-md-12"><div class="text-news app-mod"><p id="text-news">${news.text}</p></div></div>
+                    </div>
+                </div>
+         ` 
+        localStorage.setItem('news-mode',"app-mode") 
+        }
+        /*Скрипты для загрузки расширенного просмотра изображения статьи*/
+        const news_preview = localStorage.getItem('news-mode') === 'default-mode' ? document.getElementById("news-preview") : document.getElementById("news-preview-app-mod")
+        const modal = document.getElementById("modal") 
+        const close_button = document.getElementById("close")
+        const modalImg = document.getElementById("modalImg")
+        news_preview.onclick = () => {
+            modal.style.display = 'flex'
+            modalImg.src = news_preview.src
+        }
+        close_button.onclick = () => {
+            modal.style.display = 'none'
+        } 
+        
+        const news_mode_toggle = document.getElementById('news-mode-toggle')
+      !!news_mode_toggle ?  news_mode_toggle.addEventListener('click', () => {
+        const toggleModeValue = localStorage.getItem('news-mode') === "app-mode" ? "default-mode" : "app-mode" 
+        console.log('new news mode>>',toggleModeValue)
+        localStorage.setItem('news-mode', toggleModeValue)
+        const id = Number(id_str); 
+        const news = Data_news[id-1]; 
+        if (toggleModeValue === "default-mode") { 
+        news_section.innerHTML = `
+         <div class="fluid-container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4"></div>
+                        <div class="col-lg-4 col-md-4"><button id="news-mode-toggle">Перейти в режим приложения (для удобного чтения новости)</button></div>
+                        <div class="col-lg-4 col-md-4"></div>
+                        <div class="col-lg-12 col-md-12"><div class="headers" ><h2 id="headers">${news.Headers}</h2></div></div> 
+                        <div class="col-lg-10 col-md-10"><div class="news-preview"><img src="${news.image}" alt="" id="news-preview"></div></div>
+                        <div class="col-lg-2 col-md-12"><div class="data"><p id="data">${news.data}</p></div></div>
+                        <div class="col-lg-6 col-md-12"><div class="text-news"><p id="text-news">${news.text}</p></div></div>
+                    </div>
+                </div>
+         `}
+         else {
+          news_section.innerHTML = ` 
+           <div class="fluid-container">
+                    <div class="row">
+                        <div class="col-lg-4 col-md-4"></div>
+                        <div class="col-lg-4 col-md-4"><button id="news-mode-toggle">Перейти в обычный режим</button></div>
+                        <div class="col-lg-4 col-md-4"></div>
+                        <div class="col-lg-12 col-md-12"><div class="headers app-mod" ><h2 id="headers">${news.Headers}</h2></div></div>
+                        <div class="col-lg-10 col-md-10"><div class="news-preview app-mod"><img src="${news.image}" alt="" id="news-preview-app-mod"></div></div>
+                        <div class="col-lg-2 col-md-12"><div class="data app-mod"><p id="data">${news.data}</p></div></div>
+                        <div class="col-lg-6 col-md-12"><div class="text-news app-mod"><p id="text-news">${news.text}</p></div></div>
+                    </div>
+                </div>
+         ` 
+         }
+        window.location.reload()
+        }) : console.log("переключатель режимов новости не найден!")
+    })
+       
     </script>
     <script src="click-element-effect.js"></script>
     <script src="TML_datebase.js"></script>
