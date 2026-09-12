@@ -36,11 +36,21 @@
 
 /*Страница с новостью*/
 
+
 .news-section {
   display: flex;
   flex-direction: column;
   align-items: center;
 }
+
+#news-mode-toggle {
+ background: linear-gradient(180deg, rgba(255, 255, 255,0.4) 50%, rgba(255, 255, 255,0.16) 100%);
+    border: solid 2px white;
+    border-radius: 1em;
+    color: white;
+    width: 100%;
+}
+
 
 .preview-and-text {
     display: flex;
@@ -79,7 +89,108 @@
         }  
         
     }   
-    
+   
+/*Страница с новостью (режим приложения)*/     
+
+.news-section.app-mod {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.preview-and-text.app-mod {
+    display: flex;
+    justify-content: space-between;
+}
+
+.text-news.app-mod > p {
+    font-weight: bold;
+    background-color: rgba(16, 76, 214, 0.295);
+    border-radius: 2em;
+    padding: 0.5em;
+}
+
+
+ .news-preview > #news-preview-app-mod {
+    width: 27em;
+    margin: 1.5em;
+    margin-right: 40em;
+    margin-left: 8em ;
+    border-style: solid;
+    border-color: white;
+    border-width: 0.1em;
+    border-radius: 1em;
+
+}
+ 
+.text-news.app-mod > {
+    width: 5em;
+    flex-direction: column;
+    float: left;
+}
+
+@media (max-width:756px) {
+    .news-preview > #news-preview-app-mod {
+        width: 18em;
+        padding: 0em;
+        margin-right: 0em;
+        margin-left: 0em ;
+    } 
+    .news-preview {
+        display: flex;
+        justify-content: center;
+    }
+} 
+    @media (max-width:1200px) {
+        .news-preview > #news-preview-app-mod {
+            width: 18em;
+            padding: 0em;
+            margin-right: 0em;
+            margin-left: 0em ;
+            text-align: center;
+        }  
+        
+    }   
+   
+/*Если изображение новости на весь экран*/
+
+.modal-window {
+    display: none;
+    position: fixed;
+    z-index: 100;
+     left: 0;
+     top: 0;
+     width: 100%;
+     height: 100%;
+     background-color: rgba(0, 0, 0, 0.9);
+     flex-direction: column;
+     align-items: center;
+     justify-content: center;
+}
+
+.modal-content {
+  max-width: 50%;
+  max-height: 70%;
+}
+
+.close {
+  display: flex;
+  position: absolute;
+  top: 20px;
+  right: 35px;
+  color: #fff;
+  font-size: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: rgba(233, 233, 233, 0.622);
+  border-radius: 5em;
+  width: 40px;
+  height: 40px;
+  justify-content: center;
+  align-items: center;
+
+}
+
 /*Страница с новостью (формы и интерактивные элементы)*/
 
 .ref-item {
