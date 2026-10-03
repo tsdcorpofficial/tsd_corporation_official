@@ -78,9 +78,13 @@ const Data_product = [
   {
     id: 7, name: "TRASM", version: [
       { name: "TRASM beta", download_link: "https://t.me/c/3771689083/17" },
-    ], logo: "source/files/TSD Corporation logo.png"
+    ], logo: "source/files/TRASM logo.jpg"
   },
-
+  {
+   id: 8, name: "AeroOS", version: [
+      { name: "AeroOS 1.0", download_link: "https://t.me/c/3771689083/21" },
+    ], logo: "source/files/AeroOS logo.jpg"
+  }
 ]
 
 window.addEventListener('load', () => {
