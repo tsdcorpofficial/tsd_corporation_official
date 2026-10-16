@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSD Code</title>
+    <link rel="stylesheet" href="src/styles/style.css"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <link rel="apple-touch-icon" sizes="180x180" href="src/files/site_ico/apple-touch-icon.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="src/files/site_ico/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="src/files/site_ico/favicon-16x16.png">
+    <link rel="manifest" href="src/files/site_ico/site.webmanifest">
+</head>
+
+<body>
+    <header></header>
+    <section>
+        <div class="editor-items">
+            <div class="editor-item code-input">
+                <div class="code-target-item">
+                    <button id="to-head-page" onclick="console.log('Кнопка нажата!')" title="Запуск кода">
+                        <a href="../index.html" class="editor-logo-link"><img class = "editor-logo-img" src = "src/files/TSD Corporation logo.png" alt="" title="На главную страницу"></a>    
+                    </button>
+                    <button id="code-save-button" onclick="console.log('Кнопка нажата!')" title="Нажмите чтобы сохранить ваш код!">
+                        <b>Сохранить код</b>
+                    </button>
+                    <button id="code-run-button" onclick="console.log('Кнопка нажата!')" title="Запуск кода"><svg
+                            stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 16 16" height="20px"
+                            width="20px" x="0" y="0" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M4.506 3.50305L12.501 8.00005L4.501 12.5L4.506 3.50305ZM4.502 1.99805C3.718 1.99805 3 2.62605 3 3.50005V12.5C3 13.374 3.718 14.002 4.502 14.002C4.747 14.002 4.998 13.941 5.235 13.807L13.235 9.30705C14.254 8.73405 14.254 7.26605 13.235 6.69205L5.235 2.19305C4.997 2.05905 4.746 1.99805 4.502 1.99805Z">
+                            </path>
+                        </svg></button>
+                    <button id="code-clear-button" onclick="console.log('Кнопка нажата!')" title="Очистить вывод"><svg
+                            stroke="currentColor" fill="currentColor" stroke-width="0" viewBox="0 0 24 24" height="20px"
+                            width="20px" x="0" y="0" xmlns="http://www.w3.org/2000/svg">
+                            <path fill="none" d="M0 0h24v24H0z"></path>
+                            <path d="M6 19c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V7H6zM8 9h8v10H8zm7.5-5-1-1h-5l-1 1H5v2h14V4z">
+                            </path>
+                        </svg></button>
+                    <button id="code-run-button-b-console-mode" onclick="console.log('Кнопка нажата!')"
+                        title="Режим консоли браузера"><svg stroke="currentColor" fill="currentColor" stroke-width="0"
+                            viewBox="0 0 24 24" height="20px" width="20px" x="0" y="0" xmlns="http://www.w3.org/2000/svg">
+                            <path
+                                d="M5.25 21H11.8185L11.16 21.6585C10.9155 21.903 10.7565 22.194 10.647 22.5H5.25C3.1815 22.5 1.5 20.8185 1.5 18.75V5.25C1.5 3.183 3.1815 1.5 5.25 1.5H18.75C20.8185 1.5 22.5 3.183 22.5 5.25V12.135C22.236 12.228 21.9885 12.3645 21.774 12.552C21.558 12.2205 21.294 11.925 21 11.661V5.25C21 4.0095 19.9905 3 18.75 3H5.25C4.0095 3 3 4.0095 3 5.25V18.75C3 19.9905 4.0095 21 5.25 21ZM4.719 17.781C4.866 17.9265 5.058 18 5.25 18C5.442 18 5.634 17.928 5.781 17.781L10.2795 13.2825C10.572 12.99 10.572 12.5145 10.2795 12.222L5.7795 7.722C5.487 7.4295 5.0115 7.4295 4.719 7.722C4.4265 8.0145 4.4265 8.49 4.719 8.7825L8.688 12.7515L4.719 16.7205C4.4265 17.013 4.4265 17.4885 4.719 17.781ZM22.5 19.5C22.5 20.076 22.3905 20.625 22.1925 21.132L23.781 22.7205C24.0735 23.013 24.0735 23.4885 23.781 23.781C23.634 23.928 23.442 24 23.25 24C23.058 24 22.866 23.9265 22.719 23.781L21.3915 22.4535C20.5665 23.4 19.3515 24.0015 18 24.0015C16.6485 24.0015 15.4335 23.4015 14.6085 22.4535L13.281 23.781C13.134 23.928 12.942 24 12.75 24C12.558 24 12.366 23.9265 12.219 23.781C11.9265 23.4885 11.9265 23.013 12.219 22.7205L13.8075 21.132C13.6095 20.625 13.5 20.076 13.5 19.5H12.75C12.336 19.5 12 19.164 12 18.75C12 18.336 12.336 18 12.75 18H13.5V16.0605L12.219 14.7795C11.9265 14.487 11.9265 14.0115 12.219 13.719C12.5115 13.4265 12.987 13.4265 13.2795 13.719L14.5605 15H15C15 13.3455 16.3455 12 18 12C19.6545 12 21 13.3455 21 15H21.4395L22.7205 13.719C23.013 13.4265 23.4885 13.4265 23.781 13.719C24.0735 14.0115 24.0735 14.487 23.781 14.7795L22.5 16.0605V18H23.25C23.664 18 24 18.336 24 18.75C24 19.164 23.664 19.5 23.25 19.5H22.5ZM16.5 15H19.5C19.5 14.172 18.828 13.5 18 13.5C17.172 13.5 16.5 14.172 16.5 15ZM21 16.5H15V19.5C15 21.1545 16.3455 22.5 18 22.5C19.6545 22.5 21 21.1545 21 19.5V16.5Z">
+                            </path>
+                        </svg></button>
+                    <div class="blank-panel" id="blank-items">
+                    </div>
+                    </div>
+                <div class="code-input-item"><textarea name="" id="code-text-input"></textarea></div>
+            </div>
+            <div class="editor-item code-output">
+                <iframe src="" frameborder=0 srcdoc="<p style='color: white; font-family: monospace;'>Вывод кода</p>" id="code-output-console"></iframe>
+            </div>
+        </div>
+    </section>
+    <footer></footer>
+    <script src="src/scripts/script.js"></script>
+    <script src="src/scripts/data-base.js"></script>
+    <script>
+     const open_query_link = (id_value) => {
+        const link = document.createElement("a")
+        link.href = String(`?id=${id_value}`)
+        link.click()
+     }
+    </script>
+</body>
+
+</html>

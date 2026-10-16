@@ -1,0 +1,138 @@
+html {
+  font-family: monospace ; 
+  background-color: rgb(26, 25, 25);
+  color: white;
+}
+
+body {
+     height: 100%;
+}
+
+
+.editor-items {
+    display: flex;
+    flex-direction: column;
+    align-items: left;
+    height: 50em;
+    border: 0.1em solid rgba(155, 155, 155, 0.63);
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+.editor-item {
+ display: flex;
+ flex-direction: column;
+}
+
+.code-input {
+    background-color: rgb(26, 26, 26);
+    color: white;
+    height: 60%;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+.code-output {
+    height: 100%;
+    background-color: transparent;
+}
+
+.code-output > iframe {
+    background-color: rgb(30, 30, 30);
+    height: 100%;
+    border-top: 0.1em solid rgba(155, 155, 155, 0.63);
+} 
+
+.code-input > .code-target-item {
+    display: flex;
+    background-color: rgb(56, 56, 56);
+    flex-direction: row;
+    width: 100%;
+    padding-block: 0.25em;
+    justify-content: left;
+    border-top-left-radius: 1em;
+    border-top-right-radius: 1em;
+}
+
+.code-input > .code-target-item > button {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 2.5em;
+    height: 2.5em;
+    background-color: transparent;
+    color: white;
+    border-radius: 0.25em;
+    border-style: none;
+    cursor: pointer;
+}
+
+.code-input > .code-target-item > #code-save-button {
+    width: auto;
+    height: auto;
+}
+
+.code-input > .code-target-item > .blank-panel {
+ display: flex;
+ flex-direction: row;
+}
+
+.blank-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-inline: 0.5em;
+}
+
+
+.blank-item > .blank-button  {
+  padding: 0.7em;
+  background-color: transparent;
+  color: white;
+  border-radius: 0.25em;
+  border-style: none;
+  cursor: pointer;
+}
+
+.blank-button:hover {
+  background-color: rgba(85, 84, 84, 0.319);
+}
+
+.blank-button.active {
+ background-color: rgba(42, 41, 41, 0.452)   
+}
+
+.editor-logo-link {
+    text-decoration: none;
+    padding: 0;
+    margin: 0;
+}
+
+.editor-logo-link > .editor-logo-img {
+    width: 20px;
+    height: 20px; 
+}
+
+.code-input > .code-target-item > button:hover {
+    background-color: rgba(85, 84, 84, 0.319);
+}
+
+#code-output-console {
+    color: white;
+}
+
+#code-text-input {
+  resize: none;
+  background-color: transparent;
+  border: 0 none transparent;
+  width: 100%;
+  color: white;
+  height: 27em;
+  font-size: 16px;
+}
+
+#code-text-input:focus {
+   outline: none ; 
+}
+
