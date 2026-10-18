@@ -20,7 +20,7 @@
             <div class="editor-item code-input">
                 <div class="code-target-item">
                     <button id="to-head-page" onclick="console.log('Кнопка нажата!')" title="Запуск кода">
-                        <a href="../index.html" class="editor-logo-link"><img class = "editor-logo-img" src = "src/files/TSD Corporation logo.png" alt="" title="На главную страницу"></a>    
+                        <a href="../index.html" class="editor-logo-link"><img class = "editor-logo-img" id="editor-logo-img" src = "src/files/TSD Corporation logo.png" alt="" title="На главную страницу"></a>    
                     </button>
                     <button id="code-save-button" onclick="console.log('Кнопка нажата!')" title="Нажмите чтобы сохранить ваш код!">
                         <b>Сохранить код</b>
@@ -52,13 +52,15 @@
                 <div class="code-input-item"><textarea name="" id="code-text-input"></textarea></div>
             </div>
             <div class="editor-item code-output">
-                <iframe src="" frameborder=0 srcdoc="<p style='color: white; font-family: monospace;'>Вывод кода</p>" id="code-output-console"></iframe>
+                <iframe src="" frameborder=0 srcdoc="
+                <p style='color:white; font-family: monospace;'>Вывод кода</p>
+                " id="code-output-console"></iframe>
             </div>
         </div>
     </section>
-    <footer></footer>
     <script src="src/scripts/script.js"></script>
     <script src="src/scripts/data-base.js"></script>
+    <script src="../TML_datebase.js"></script>
     <script>
      const open_query_link = (id_value) => {
         const link = document.createElement("a")
