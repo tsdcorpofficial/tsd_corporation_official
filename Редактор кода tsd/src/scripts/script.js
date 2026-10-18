@@ -5,6 +5,9 @@ const code_run_button_b_console_mode = document.getElementById("code-run-button-
 const code_clear_button = document.getElementById("code-clear-button")
 const code_save_button = document.getElementById("code-save-button")
 code_text_input.addEventListener('input', async () => {
+  /* Для получения значения из тестового поля и удалении символа абзаца 
+   (чтобы перенести тескт на другую строку просто нажмите "Enter" перед частью текста,
+   которую вы хотите перенести) */
   const text_array = code_text_input.value.split('')
   if (text_array[text_array.length - 1] === "\n") {
     text_array.pop()
@@ -15,16 +18,16 @@ code_text_input.addEventListener('input', async () => {
   }
   console.log('Текущий текст - ', text_array)
   const blank_list_update  = () => {
-  //Для проверки наличия query параметров и массива с вкладками(и его конкретного элемента по q параметру)
+  //Функция для проверки наличия query параметров и массива с вкладками и его конкретного элемента по q параметру (при вводе нового символа в текстовом поле)
     const search = new URLSearchParams(window.location.search)
    const id = search.get("id")
    const num_id = Number(id)
   console.log("Последний элемент в коде - ",text_array[text_array.length - 1])
-   const black_list = JSON.parse(localStorage.getItem("blank-list"))
-    console.log(black_list)
+   const blank_list = JSON.parse(localStorage.getItem("blank-list"))
+    console.log(blank_list)
     console.log("Получены данные из массива с вкладками кода",)
-    const black_list_item = black_list[num_id - 1]
-      console.log(black_list_item," - страница в массиве вкладок, с которой вы работаете!")
+    const blank_list_item = blank_list[num_id - 1]
+      console.log(blank_list_item," - страница в массиве вкладок, с которой вы работаете!")
       // Для проверки наличия левой скобки (чтобы поставить правую, так удобнее)
       switch (text_array[text_array.length - 1]) {
       case "{": code_text_input.value += "}" 
@@ -36,12 +39,13 @@ code_text_input.addEventListener('input', async () => {
       default: console.log("Скобок и тире не обнаружено!")
       break;
     }
-     black_list_item.text = code_text_input.value
-      localStorage.setItem("blank-list", JSON.stringify(black_list))
+     blank_list_item.text = code_text_input.value
+      localStorage.setItem("blank-list", JSON.stringify(blank_list))
     }
     blank_list_update()
    })
 window.addEventListener("load", () => {
+  // Для проверки наличия query параметров и массива с вкладками и его конкретного элемента по q параметру (при загрузке страницы)
   const search = new URLSearchParams(window.location.search)
   const id = search.get("id")
   const num_id = Number(id)
@@ -53,9 +57,9 @@ window.addEventListener("load", () => {
   //Проверка наличия массива с вкладками (страницами с кодом)
   if (!!localStorage.getItem("blank-list")) {
     // Выполняется, если массив с вкладками найден!
-    const black_list = JSON.parse(localStorage.getItem("blank-list"))
-    console.log(black_list)
-    black_list.forEach(blank => {
+    const blank_list = JSON.parse(localStorage.getItem("blank-list"))
+    console.log(blank_list)
+    blank_list.forEach(blank => {
     
     if (blank.id === num_id)  {
       //Выполняется если одна из вкладок в массиве соответствует номеру (id) вкладки в query-параметрах
@@ -80,20 +84,20 @@ window.addEventListener("load", () => {
    })
    // Код для вывода информации с активной вкладки в поле ввода  
    console.log("Получены данные из массива с вкладками кода",)
-    const black_list_item = black_list[num_id - 1]
-      console.log(black_list_item," - страница в массиве вкладок, с которой вы работаете!")  
-    if(!black_list_item) {
+    const blank_list_item = blank_list[num_id - 1]
+      console.log(blank_list_item," - страница в массиве вкладок, с которой вы работаете!")  
+    if(!blank_list_item) {
       // Выполняется если нашей вкладки ещё не существует!
-      if(num_id - black_list.length > 1) {
+      if(num_id - blank_list.length > 1) {
       // Выполняется, если номер новой вкладки больше числа вкладок на значение > 1
         const link = document.createElement("a")
-        link.href = String(`?id=${black_list[black_list.lentgh]}`)
+        link.href = String(`?id=${blank_list[blank_list.lentgh]}`)
         link.click()
       }
-      if(num_id - black_list.length === 1) {
+      if(num_id - blank_list.length === 1) {
       // Выполняется, если номер новой вкладки больше числа вкладок в массиве на 1
-        black_list.push({id:num_id,text:""})
-      localStorage.setItem("blank-list", JSON.stringify(black_list))
+        blank_list.push({id:num_id,text:""})
+      localStorage.setItem("blank-list", JSON.stringify(blank_list))
      }
      if(num_id === 0 || num_id < 0) {
       // Выполняется, если номер новой вкладки равен нулю или меньше нуля
@@ -104,18 +108,19 @@ window.addEventListener("load", () => {
     }
     else {
       // Выполняется, если вкладка уже существует
-      console.log("текст текущей вкладки - ", black_list_item.text)
-      code_text_input.value = black_list_item.text || ""
+      console.log("текст текущей вкладки - ", blank_list_item.text)
+      code_text_input.value = blank_list_item.text || ""
     }
+
   }
   else {
     //Выполняется если массив с вкладками не найден 
-    const black_list = JSON.parse(localStorage.getItem("blank-list"))
+    const blank_list = JSON.parse(localStorage.getItem("blank-list"))
     console.log("Массив со страницами не найден")
     setInterval(() => {console.log("Подождите чуть")}, 50000)
       console.log("Мы создаем сам массив и новый элемент (страницу) внутри него!")
       localStorage.setItem("blank-list", JSON.stringify([{id:id, text:""}]))
-      black_list.forEach(blank => {
+      blank_list.forEach(blank => {
     
       document.getElementById("blank-items").innerHTML += `
       <div class="blank-item">
@@ -126,7 +131,18 @@ window.addEventListener("load", () => {
       })
     
     }
-})
+    //Код для добавления кнопки для создания новой вкладки
+    document.getElementById("blank-items").innerHTML += `
+      <div class="blank-item add-new-blanc">
+       <button class="blank-button" id="add-blank-button" onclick="open_query_link(${num_id + 1})">
+         <b>+</b> Новая вкладка
+       </button>
+      </div>
+      <div class="blank-item">
+      <button id="ThemeToggleButton" onClick="ThemeToggle()">Поменять тему на ☀️</button>
+      </div>
+      `
+  })
 code_run_button.addEventListener('click', () => {
  console.log("Запуск вашего кода>>")
  const outputText = new Function(code_text_input.value)()
@@ -147,10 +163,18 @@ code_run_button_b_console_mode.addEventListener('click', () => {
 
 
 code_clear_button.addEventListener("click", () => {
- console.log("Удаление кода и очистка консоли!>>")
+ //Очистка консоли, кода в текстовом поле и записи в локальном хранилище
+  console.log("Удаление кода и очистка консоли!>>")
  code_text_input.value = ''
- localStorage.removeItem("code-text")
  code_output_console.setAttribute("srcdoc",`<p style="color: white; font-family: monospace ;">Вывод кода</p>`)
+  const search = new URLSearchParams(window.location.search)
+  const id = search.get("id")
+  const num_id = Number(id)
+  const blank_list = JSON.parse(localStorage.getItem("blank-list"))
+  const blank_list_item = blank_list[num_id - 1]
+    blank_list_item.text = ""
+    localStorage.setItem("blank-list", JSON.stringify(blank_list))
+  
 })
 
 code_save_button.addEventListener("click", () => {
