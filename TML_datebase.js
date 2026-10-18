@@ -52,6 +52,22 @@ const Data_news = [
     image: "source/images/TOS News Preview 3.png",
     data: "26.07.2026", updated: "true"
   },
+{
+    id: 4,
+    Headers: "Новый редактор кода TSD Corporation",
+    text: `<p>В корпорации TSD Corporation проходили выборы нового главы корпорации. 
+    В результате 1, 2 части выборов в финальной части оказались два кандидата - Нестор Ващенко и Кузьма Кузьмин (а по простому *Кузя*).
+    </p> 
+    <p>В результате проверок, многие пришли к выводу что выборы могли быть сфальсифицированы: 
+    голоса у одного из кандидатов - Нестора Ващенко, могли быть накручены. 
+    Однако есть и те кто защищают Нестора и опровергают накрутку и считают, что Кузя обиделся на Нестора и на результаты финальной части из-за того, 
+    что разница в процентах между его голосами и его главного оппонента очень большая.</p> 
+    <p>Действия остнователя TSD Corporation были направлены на полное онуление очков Нестора и назначение на должность главы компании Кузьмы Кузьмина.</p> 
+    <p>На данный момент мы ждем реакции от других компаний, таких как Smartford Corporation и Vanko Corporation</p>`,
+    image: "source/images/TOS News Preview 2 - выборы.png",
+    data: "21.06.2026", updated: "false"
+  },
+
 ]
 
 const Data_product = [
@@ -146,6 +162,14 @@ const SetTheme = (theme) => {
 const ThemeToggle = () => {
  const currentTheme = document.documentElement.getAttribute("data-theme")
  const newTheme = currentTheme === "dark"? "light" : "dark"
+ if (document.getElementById("editor-logo-img")) {
+   if (newTheme === "dark") {
+    document.getElementById("editor-logo-img").src = "src/files/TSD Corporation logo.png"
+  }
+  else {
+    document.getElementById("editor-logo-img").src = "src/files/TSD Corporation logo (dark).png"
+  }
+}
  SetTheme(newTheme)
  document.getElementById('ThemeToggleButton').innerHTML = `Поменять тему на ${newTheme === 'dark' ? '☀️' : '🌙'}`
  console.log("New theme>>",newTheme)
@@ -164,13 +188,27 @@ const InitTheme = () => {
 
 document.addEventListener('DOMContentLoaded', InitTheme)
 window.addEventListener("load", () => {
-  document.getElementById("navbarTogglerDemo03").innerHTML += document.documentElement.getAttribute("data-theme") === "dark" ? `
-  <ul class="navbar-nav" id="nav-bar_list">
-  <button id="ThemeToggleButton" onClick="ThemeToggle()">Поменять тему на ☀️</button>
-  </ul>` : `
-  <ul class="navbar-nav" id="nav-bar_list">
-  <button id="ThemeToggleButton" onClick="ThemeToggle()">Поменять тему на 🌙</button>
-  </ul>` 
+  const addThemeToggleButton = () => {
+    const TTB_ITEM = document.getElementById("navbarTogglerDemo03")
+    const TTB_VALUE = document.documentElement.getAttribute("data-theme") === "dark" ? `
+    <ul class="navbar-nav" id="nav-bar_list">
+      <button id="ThemeToggleButton" onClick="ThemeToggle()">Поменять тему на ☀️</button>
+    </ul>` : `
+    <ul class="navbar-nav" id="nav-bar_list">
+      <button id="ThemeToggleButton" onClick="ThemeToggle()">Поменять тему на 🌙</button>
+    </ul>`
+    if (TTB_ITEM) {
+    TTB_ITEM.innerHTML += TTB_VALUE }}
+  addThemeToggleButton()
+  if (document.getElementById("editor-logo-img")) {
+   if (document.documentElement.getAttribute("data-theme") === "dark") {
+    document.getElementById("editor-logo-img").src = "src/files/TSD Corporation logo.png"
+  }
+   if (document.documentElement.getAttribute("data-theme") === "light") {
+    document.getElementById("editor-logo-img").src = "src/files/TSD Corporation logo (dark).png"
+   }
+  }
+  
   console.log(localStorage.getItem("theme") + " " + window.matchMedia('(prefers-color-scheme: dark)').matches)
 })
 
