@@ -67,7 +67,35 @@ const Data_news = [
     image: "source/images/TOS News Preview 2 - выборы.png",
     data: "21.06.2026", updated: "false"
   },
-
+  {
+    id: 5,
+    Headers: "TSD Corporation и Vanko Corporation обьединились",
+    text: `<p>5 Ноября 2026 года две известные корпорации - TSD Corporation и Vanko Corporation обьеденились в двойной корпоративный союз "TSD-Vanko"</p>
+            <p>Новая реформа подразумевает не насильное подчинение одной корпорации другой, а равноправное обьединение, созданное с целью сотрудничества и анти-монопольной борьбы</p>
+            <p><b>Новая реформа подразумевает:</b></p>
+            <p>
+              <ul>
+                <li><code>1. Структура Vanko Corp никак не затронута.</code></li>
+                <li><code>2. В совет глав TSD входит глава Vanko, как особый человек.</code></li>
+                <li><code>3. У обьединения есть собственный логотип (в будущем будет создан флаг). Данный логотип будет использоваться только как общий бренд.</code></li>
+              </ul>
+            </p>
+            <p>Подписывайтесь на Vanko Corporation и TSD Corporation в Telegram!</p>
+            <p>
+             <div class="ref-item mb-true">
+               <img src="source/files/TSD Corporation logo.png" class="ref-resource-image">
+               </img><h6 class="ref-resource-name">TML Official</h6>
+               <a class="ref-link" target="_blank" href="https://t.me/TSD_TML_OFFICIAL">Присоединиться</a>
+             </div>
+             <div class="ref-item mb-true">
+               <img src="https://yt3.ggpht.com/GcmZj-06jdNDEu0kVzANRTuw5e_rseXpUzS3oadrARdbky2y_oP58bm-Xo4xPV6x6EmQ_uVoZQ=s176-c-k-c0x00ffffff-no-rj-mo" class="ref-resource-image">
+               </img><h6 class="ref-resource-name">Vanko Corporation</h6>
+               <a class="ref-link" target="_blank" href="https://t.me/+_KuIVRr0exBmNmIy">Присоединиться</a>
+             </div>
+             </p>`, 
+    image: "source/files/TSD-Vanko Union logo.jpg",
+    data: "06.11.2026", updated: "false"
+  }
 ]
 
 const Data_product = [
