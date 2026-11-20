@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TSD Corporation — Официальный сайт</title>
+    <!-- Подключаем шрифт и иконки -->
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="source/styles/News.css">
+    <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+     
+</head>
+<body>
+
+    <!-- Шапка -->
+    <header>
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="index.html?page_name=home" onclick="navigate('home')">
+                    <img src="source/files/TSD Corporation logo.png" alt="TSD" style="height: 32px;">
+                    TSD Corp
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav" id="nav-bar_list">
+                        <li class="nav-item"><a class="nav-link" href="#" data-page="home" onclick="openPage('home')">Главная</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-page="products" onclick="openPage('products')">Продукты</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-page="download" onclick="openPage('download')">Скачать</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-page="news" onclick="openPage('news')">Новости</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-page="about" onclick="openPage('about')">О нас</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#" data-page="contact" onclick="openPage('contact')">Контакты</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Контейнер для контента -->
+    <main id="app-content" class="container py-4">
+        <!-- Сюда скрипт будет вставлять страницы -->
+    </main>
+
+    <!-- Подвал -->
+    <footer>
+        <div class="container text-center">
+            <p class="footer-text-item">TSD Corporation 2026. Все права защищены</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
