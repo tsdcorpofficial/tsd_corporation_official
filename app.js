@@ -234,6 +234,20 @@ function renderContact() {
     `;
 }
 
+// Страница редактора кода TSD-Code
+function renderTsdCode() {
+    app.innerHTML = `
+        <div class="text-center py-5">
+            <h1 class="hero-title">TSD Code</h1>
+            <p class="mb-5 fs-5">Совершенно новый редактор кода от нас.</p>
+            <div class="mb-5">
+                <img src="source/images/TOS Preview.png" class="img-fluid carousel-preview" style="max-height: 400px;" alt="TriadeOS">
+            </div>
+            <p class="mb-5 fs-5"><span class="fw-bold fst-italic">TSD Code</span> <span class="fst-italic"> - редактор кода от TSD Corporation</span>(т.е нашей компании), позволяющий писать код на языке программирования JavaScript и сохранять написанный вами код в формате <span class="">.js</span></p>
+             <p class="mb-5 fs-5">Опробывать новый редактор кода можно по <a href="Редактор кода tsd/index.html">ссылке</a></p>
+            </div>
+    `;
+}
 
 // ==========================================
 // 3. РОУТЕР (Переключение страниц)
@@ -279,7 +293,7 @@ function navigate(page, navLinksList, param = null) {
         renderProductDetail(param);
     }
     if (page === 'news_detail') renderNewsDetail(param);
-
+    if (page === 'tsdcode') renderTsdCode()
     console.log("Открыта страница>>", page, param ? param : "")
 }
 
